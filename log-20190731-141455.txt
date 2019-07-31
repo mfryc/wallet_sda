@@ -1,0 +1,11 @@
+246  [main] INFO  Person - I am Franciszek
+251  [main] INFO  Person - Balance: {PLN=10,00 PLN}
+251  [main] INFO  Person - I am Zenon
+251  [main] INFO  Person - Balance: {}
+251  [main] INFO  Main - Audits have been issued
+251  [main] WARN  Person - You are poor.
+251  [main] INFO  Person - I am Franciszek
+252  [main] INFO  Person - Balance: {PLN=10,00 PLN}
+252  [main] INFO  Person - I am Zenon
+252  [main] INFO  Person - Balance: {}
+252  [main] INFO  Main - Audits have been issued
