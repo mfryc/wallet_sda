@@ -27,7 +27,7 @@ public class Person {
             wallet.withdraw(quantity);
             who.take(quantity);
         } catch (YouArePoorException e) {
-            LOGGER.warn("You are poor.");
+            LOGGER.warn("You are poor");
         }
     }
 
