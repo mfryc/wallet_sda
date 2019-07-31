@@ -25,7 +25,7 @@ public class Wallet {
     }
 
     public String balance() {
-        return format("Saldo: %s", money);
+        return format("Balance: %s", money);
     }
 
     public Map<Currency, Money> getMoney() {
