@@ -8,43 +8,38 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WalletTest {
     Wallet wallet;
+
     @BeforeEach
-    public void stworzPortfel() {
+    public void createWallet() {
         wallet = new Wallet();
     }
 
 
     @Test
-    public void wplac () {
-        BigDecimal kwota = new BigDecimal(20.99);
-        Money zlotowkiWplacane = new Money(kwota, Currency.PLN);
-        wallet.deposit(zlotowkiWplacane);
-        assertEquals(zlotowkiWplacane, wallet.getMoney().get(Currency.PLN));
+    public void deposit() {
+        BigDecimal quantity = new BigDecimal(20.99);
+        Money quantityPLN = new Money(quantity, Currency.PLN);
+        wallet.deposit(quantityPLN);
+        assertEquals(quantityPLN, wallet.getMoney().get(Currency.PLN));
     }
 
     @Test
-    public void wyplac () throws YouArePoorException {
+    public void withdraw() throws YouArePoorException {
         //is
-        BigDecimal kwotaWplacona = BigDecimal.valueOf(2099,2);
-        BigDecimal kwotaWyplacona = new BigDecimal(10);
-        BigDecimal kwotaSpodziewana = BigDecimal.valueOf(1099,2);
+        BigDecimal amountPaidIn = BigDecimal.valueOf(2099, 2);
+        BigDecimal amountPaidOut = new BigDecimal(10);
+        BigDecimal expectedAmount = BigDecimal.valueOf(1099, 2);
 
-        Money zlotowkiSpodziewane = new Money(kwotaSpodziewana, Currency.PLN);
-        Money zlotowkiWplacane = new Money(kwotaWplacona, Currency.PLN);
-        wallet.deposit(zlotowkiWplacane);
-        Money zlotowkiWyplacone = new Money(kwotaWyplacona, Currency.PLN);
+        Money expectedPLN = new Money(expectedAmount, Currency.PLN);
+        Money PlnPaidIn = new Money(amountPaidIn, Currency.PLN);
+        wallet.deposit(PlnPaidIn);
+        Money PlnPaidOut = new Money(amountPaidOut, Currency.PLN);
 
         //then
-        wallet.withdraw(zlotowkiWyplacone);
+        wallet.withdraw(PlnPaidOut);
 
         //expected
-        assertEquals(zlotowkiSpodziewane, wallet.getMoney().get(Currency.PLN));
-
-    }
-
-    @Test
-    public void saldo () {
-
+        assertEquals(expectedPLN, wallet.getMoney().get(Currency.PLN));
 
     }
 }
